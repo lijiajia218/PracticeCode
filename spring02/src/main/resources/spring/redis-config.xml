@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- redis template definition -->
+    <!-- 配置Jedis的 缓冲池 -->
+    <bean id="JedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"
+          p:maxTotal="48"
+          p:maxIdle="6"
+          p:maxWaitMillis="5000"
+          p:minEvictableIdleTimeMillis="300000"
+          p:numTestsPerEvictionRun="3"
+          p:timeBetweenEvictionRunsMillis="60000">
+    </bean>
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:poolConfig-ref="JedisPoolConfig"
+          p:hostName="${redis.url}"
+          p:port="${redis.port}"
+          p:password="${redis.password}"
+          p:database="${redis.database}"
+          p:timeout="3000"
+          p:usePool="true">
+    </bean>
+    <!-- 配置 redisTemplate -->
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory"   ref="jedisConnectionFactory" />
+    </bean>
+
+</beans>
