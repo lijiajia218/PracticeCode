@@ -5,15 +5,23 @@ package com.li.bean;/**
  */
 
 import lombok.Data;
+import org.springframework.beans.factory.InitializingBean;
 
 /**
  *@Author sqb
  *@Date 11:32
  */
 @Data
-public class User {
+public abstract class User implements InitializingBean {
     
     private String name ;
     private int age;
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("test");
+    }
+
+
 
 }

@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!--配置注解扫描-->
+    <context:component-scan base-package="com.controller"/>
+<!--    <context:component-scan base-package="service"/>-->
+<!--    <context:component-scan base-package="dao"></context:component-scan>-->
+
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <!--    <mvc:resources mapping="/js/**" location="/js/"/>-->
+
+    <!--    <bean class="service.SmsServiceImp"></bean>-->
+    <!--配置文件上传解析器-->
+    <!--    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+    <!--        <property name="defaultEncoding" value="UTF-8"/>-->
+    <!--        <property name="maxUploadSize" value="12217950"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+    <!--        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>-->
+    <!--        <property name="jdbcUrl" value="jdbc:mysql:///D1"></property>-->
+    <!--        <property name="user" value="root"></property>-->
+    <!--        <property name="password" value="mysql"></property>-->
+    <!--    </bean>-->
+    <!--    &lt;!&ndash;    jdbc模板对象&ndash;&gt;-->
+    <!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
+        <!--        <property name="dataSource" ref="dataSource"/>-->
+    </bean>
+</beans>

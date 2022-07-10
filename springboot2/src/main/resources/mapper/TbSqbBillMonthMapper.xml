@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot2.mapper.TbSqbBillMonthMapper">
+    <resultMap id="BaseResultMap" type="com.example.springboot2.model.TbSqbBillMonth">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="trade_month" jdbcType="CHAR" property="tradeMonth" />
+        <result column="bill_type" jdbcType="INTEGER" property="billType" />
+        <result column="source_merchant_id" jdbcType="VARCHAR" property="sourceMerchantId" />
+        <result column="sqb_merchant_id" jdbcType="VARCHAR" property="sqbMerchantId" />
+        <result column="sqb_trade_num" jdbcType="INTEGER" property="sqbTradeNum" />
+        <result column="sqb_trade_money" jdbcType="BIGINT" property="sqbTradeMoney" />
+        <result column="sqb_refund_num" jdbcType="INTEGER" property="sqbRefundNum" />
+        <result column="sqb_refund_money" jdbcType="BIGINT" property="sqbRefundMoney" />
+        <result column="dimension" jdbcType="VARCHAR" property="dimension" />
+        <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+        <result column="sqb_merchant_sn" jdbcType="VARCHAR" property="sqbMerchantSn" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, trade_month, bill_type, source_merchant_id, sqb_merchant_id, sqb_trade_num, sqb_trade_money,
+    sqb_refund_num, sqb_refund_money, dimension, create_at, sqb_merchant_sn
+    </sql>
+
+    <select id="findOne" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_sqb_bill_month
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insert" parameterType="com.example.springboot2.model.TbSqbBillMonth">
+        insert into tb_sqb_bill_month (id, trade_month, bill_type,
+                                       source_merchant_id, sqb_merchant_id, sqb_trade_num,
+                                       sqb_trade_money, sqb_refund_num, sqb_refund_money,
+                                       dimension, create_at, sqb_merchant_sn
+        )
+        values (#{id,jdbcType=INTEGER}, #{tradeMonth,jdbcType=CHAR}, #{billType,jdbcType=INTEGER},
+                #{sourceMerchantId,jdbcType=VARCHAR}, #{sqbMerchantId,jdbcType=VARCHAR}, #{sqbTradeNum,jdbcType=INTEGER},
+                #{sqbTradeMoney,jdbcType=BIGINT}, #{sqbRefundNum,jdbcType=INTEGER}, #{sqbRefundMoney,jdbcType=BIGINT},
+                #{dimension,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{sqbMerchantSn,jdbcType=VARCHAR}
+               )
+    </insert>
+
+</mapper>
