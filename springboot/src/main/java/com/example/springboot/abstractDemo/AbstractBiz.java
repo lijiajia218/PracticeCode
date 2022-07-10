@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.validation.ValidationUtils;
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 18:39
  */
 abstract  public class AbstractBiz<Req, Param, Res> {

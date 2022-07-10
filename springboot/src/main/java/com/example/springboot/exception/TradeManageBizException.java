@@ -5,7 +5,7 @@ package com.example.springboot.exception;/**
  */
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 22:25
  */
 public class TradeManageBizException extends RuntimeException{

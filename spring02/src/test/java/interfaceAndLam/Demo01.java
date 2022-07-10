@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.function.Consumer;
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 20:05
  */
 public class Demo01 {

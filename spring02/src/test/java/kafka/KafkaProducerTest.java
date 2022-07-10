@@ -13,7 +13,7 @@ import org.junit.Test;
 import java.util.Properties;
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 3:45 下午
  */
 public class KafkaProducerTest {

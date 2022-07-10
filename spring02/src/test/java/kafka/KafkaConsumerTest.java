@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Properties;
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 3:47 下午
  */
 public class KafkaConsumerTest {

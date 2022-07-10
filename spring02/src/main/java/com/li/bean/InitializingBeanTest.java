@@ -5,7 +5,7 @@ package com.li.bean;/**
  */
 
 /**
- *@Author sqb
+ *@Author lll
  *@Date 18:23
  */
 public class InitializingBeanTest extends User{
